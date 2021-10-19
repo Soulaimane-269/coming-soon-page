@@ -94,7 +94,7 @@ body {
 }
 .right-side {
   flex: 3;
-  height: 100vh;
+  min-height: 100vh;
   background: url(/images/hero-desktop.jpg);
   background-size: cover;
   background-repeat: no-repeat;

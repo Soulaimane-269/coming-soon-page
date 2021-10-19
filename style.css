@@ -6,15 +6,16 @@
   font-family: "Josefin Sans", sans-serif;
 }
 body {
-  height: 100vh;
   position: relative;
   background: url(/images/bg-pattern-desktop.svg);
   font-size: 16px;
 }
 .logo {
-  position: absolute;
+  position: fixed;
   top: 5%;
-  left: 12%;
+  left: 010%;
+  background-color: white;
+  max-width: fit-content;
 }
 .container {
   display: flex;
@@ -22,11 +23,14 @@ body {
 .left-side {
   flex: 4;
   display: flex;
-  text-align: center;
   flex-direction: column;
   justify-content: space-around;
-  align-items: center;
   overflow: hidden;
+  position: relative;
+}
+.left-side > div{
+  margin:  0 auto;
+  max-width: 70%;
 }
 .left-side .title {
   margin-bottom: 2rem;
@@ -45,16 +49,14 @@ body {
 .left-side .description p {
   line-height: 2rem;
   color: hsl(0, 36%, 70%);
-  text-align: left;
-  max-width: 60%;
-  margin-left: auto;
-  margin-right: auto;
 }
 .left-side .input-field {
-  position: relative;
-  width: 70%;
-  margin: auto;
   margin-top: 3rem;
+}
+.left-side .input-field .input-wrapper{
+  display:block;
+  position: relative;
+  max-width: 70%;
 }
 .left-side .input-field input {
   border-radius: 30px;
@@ -63,7 +65,7 @@ body {
   border: 1px solid hsla(0, 6%, 24%, 0.555);
   outline: none;
   color: hsl(0, 6%, 24%);
-  width: 70%;
+  min-width: 100%;
   font-size: larger;
   line-height: 40px;
 }
@@ -73,7 +75,7 @@ body {
   border-radius: 2rem;
   position: absolute;
   top: 0;
-  right: 50px;
+  right: 0;
   height: 3.3rem;
   width: 5rem;
   background-image: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
@@ -98,16 +100,28 @@ body {
   background-repeat: no-repeat;
   transition: 0.5s;
 }
-@media (max-width: 855px) {
+@media (max-width: 950px) {
+  body{
+    background: white;
+  }
   .container {
-    display: block;
+   display: flex;
+   flex-direction: column-reverse;
+   
+  }
+  .logo{
+    min-width: 100vmax;
+    padding: 2rem 2rem 2rem ;
+    position: static;
   }
   .left-side {
     width: 100vw;
-    margin: 2rem 0 0 0;
+    margin: 2rem 0 ;
   }
   .right-side {
     background-repeat: no-repeat;
+    min-height: 80vmax;
+    min-width: 100vw;
   }
   .left-side .title {
     margin-bottom: 1rem;
@@ -117,21 +131,16 @@ body {
     font-size: 3rem;
     font-weight: normal;
     line-height: 2.8rem;
-    text-align: center;
+    
   }
-  .left-side .input-field input {
+  .left-side .input-field .input-wrapper input {
     margin: 2rem 0rem;
-    height: 40px;
-    padding: 14px 0px 14px 19px;
+  
   }
   .left-side .input-field button {
     position: absolute;
-    top: 29px;
-    right: 28px;
-    height: 2.9rem;
-  }
-  .left-side .input-field button:hover {
-    height: 2.8rem;
+    right: 0;
+    top: 27%;
   }
 }
 @media (max-width: 375px) {

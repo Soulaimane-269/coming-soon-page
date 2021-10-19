@@ -1,8 +1,27 @@
 "usestrict";
-const form = document.querySelector(".input-field");
+const form = document.querySelector("form") , inputWrapper= document.querySelector(".input-field .input-wrapper");
 
 form.addEventListener("submit", validateForm);
 
+function showAlert() {
+  let node = document.createElement("p");
+  let textnode = document.createTextNode("Please provide a valid email");
+  node.appendChild(textnode);
+  inputWrapper.appendChild(node);
+  node.style.position = "absolute";
+  node.style.bottom = "-55%";
+  node.style.left = "5%";
+  node.style.color = "red";
+  if(window.matchMedia("(max-width:950px)").matches) {
+  node.style.position = "absolute";
+  node.style.bottom = "0";
+  node.style.left = "5%";
+  node.style.color = "red";
+  } 
+  setTimeout(() => {
+    inputWrapper.removeChild(node);
+  }, 2000);
+}
 function validateForm(e) {
   e.preventDefault();
   let emailValue = e.target[0].value;
@@ -15,17 +34,3 @@ function validateForm(e) {
   }
 }
 
-function showAlert() {
-  let node = document.createElement("p");
-  let textnode = document.createTextNode("Please provide a valid email");
-  node.appendChild(textnode);
-  form.appendChild(node);
-  node.style.position = "absolute";
-  node.style.top = "60px";
-  node.style.left = "90px";
-  node.style.color = "red";
-
-  setTimeout(() => {
-    form.removeChild(node);
-  }, 2000);
-}
